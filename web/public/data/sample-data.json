@@ -1,0 +1,5 @@
+{
+  "title": "Get Started!",
+  "image": "https://img.freepik.com/psd-gratis/icono-3d-nft-cadena_629802-28.jpg",
+  "description": "The main idea of this project is to use it as a frontend in Next.js base, to interact with one or several smart contracts defined within the project. It is necessary to make its corresponding deploy in hardhat to be consumed through this frontend. The entire boilerplate is already configured. Currently the project supports connecting to a wallet to start the communication between this frontend and the blockchain."
+}

@@ -1,0 +1,30 @@
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.buttonContainer :first-child {
+  width: 50%;
+  margin: 0 5px;
+}
+.buttonContainer :last-child {
+  width: 50%;
+  margin: 0 5px;
+}
+
+@media only screen and (max-width: 767px) {
+  .buttonContainer {
+    flex-direction: column;
+  }
+  .buttonContainer :first-child {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  .buttonContainer :last-child {
+    width: 100%;
+  }
+}
