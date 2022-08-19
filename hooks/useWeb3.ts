@@ -3,7 +3,10 @@ import { ethers } from "ethers";
 import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { toast } from "react-toastify";
-import { NEXT_PUBLIC_GOERLI_URL } from "../utils/consts";
+import {
+  NEXT_PUBLIC_ALCHEMY_ID,
+  //NEXT_PUBLIC_INFURA_ID
+} from "../utils/consts";
 import {
   Web3ProviderState,
   Web3Action,
@@ -14,11 +17,43 @@ import {
 const providerOptions = {
   walletconnect: {
     package: WalletConnectProvider, // required
-    // options: {
-    //   infuraId: NEXT_PUBLIC_INFURA_ID,
-    // },
-    rpc: {
-      5: NEXT_PUBLIC_GOERLI_URL,
+    options: {
+      rpc: {
+        //You can choose between different nodes, but use only one per network
+        5: `https://eth-goerli.g.alchemy.com/v2/${NEXT_PUBLIC_ALCHEMY_ID}`,
+        //  ||`https://goerli.infura.io/v3/${NEXT_PUBLIC_INFURA_ID}`,
+      },
+      display: {
+        description: "Scan with a wallet to connect",
+      },
+      qrcodeModalOptions: {
+        desktopLinks: [
+          "ledger",
+          "tokenary",
+          "wallet",
+          "wallet 3",
+          "secuX",
+          "ambire",
+          "wallet3",
+          "apolloX",
+          "zerion",
+          "sequence",
+          "punkWallet",
+          "kryptoGO",
+          "nft",
+          "riceWallet",
+          "vision",
+          "keyring",
+        ],
+        mobileLinks: [
+          "rainbow",
+          "metamask",
+          "argent",
+          "trust",
+          "imtoken",
+          "pillar",
+        ],
+      },
     },
   },
 };
@@ -54,6 +89,7 @@ export const useWeb3 = () => {
           network,
         } as Web3Action);
       } catch (e) {
+        toast.info("If you want use Metamask, just press in GET METAMASK");
         console.log("connect error", e);
       }
     } else {

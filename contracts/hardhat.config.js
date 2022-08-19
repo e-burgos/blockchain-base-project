@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 require("dotenv").config();
 require("@nomiclabs/hardhat-ethers");
 require("@nomiclabs/hardhat-etherscan");
-const { GOERLI_URL, PRIVATE_KEY, ETHERSCAN_API_KEY } = process.env;
+const { ALCHEMY_ID, PRIVATE_KEY, ETHERSCAN_API_KEY } = process.env;
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -13,7 +14,7 @@ module.exports = {
     },
     goerli: {
       chainId: 5,
-      url: GOERLI_URL,
+      url: `https://eth-goerli.g.alchemy.com/v2/${ALCHEMY_ID}`,
       accounts: [PRIVATE_KEY],
     },
   },

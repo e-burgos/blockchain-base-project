@@ -13,6 +13,10 @@
   background-color: #19857b30;
 }
 
+.transferContainer {
+  padding: 20px;
+}
+
 @media only screen and (max-width: 767px) {
   .container {
     flex-direction: column;
